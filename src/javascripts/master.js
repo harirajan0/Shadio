@@ -1,30 +1,32 @@
-var app = angular.module('shadioApp', [require('angular-route')]);
+console.log('here');
+
+var app = angular.module('shadioApp', ['ngRoute']);
 
 app.config(function($routeProvider) 
 {
     $routeProvider
         .when('/home', {
-            templateUrl: 'views/home.html', 
+            templateUrl: './views/home.html', 
             controller: 'homeController'
         })
 
         .when('/login', {
-            templateUrl: 'views/login.html', 
+            templateUrl: '../views/login.html', 
             controller: 'loginController'
         })
 
         .when('/signup', {
-            templateUrl: 'views/signup.html', 
+            templateUrl: '../views/signup.html', 
             controller: 'signupController'
         })
 
         .when('/radio', {
-            templateUrl: 'views/radio.html', 
+            templateUrl: '../views/radio.html', 
             controller: 'radioController'
         })
 
         .when('/profile', {
-            templateUrl: 'views/profile.html', 
+            templateUrl: '../views/profile.html', 
             controller: 'profileController'
         })
 

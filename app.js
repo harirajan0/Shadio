@@ -6,28 +6,26 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var lessMiddleware = require('less-middleware');
 
-var index = require('./routes/index');
-// var users = require('./routes/users');
+var index = require('./src/primaryroute.js');
 
 var app = express();
 var cons = require('consolidate');
 
 // view engine setup
 app.engine('html', cons.swig)
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './src/views'));
 app.set('view engine', 'html');
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// uncomment after placing your favicon in /src
+//app.use(favicon(path.join(__dirname, 'src', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(lessMiddleware(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(lessMiddleware(path.join(__dirname, 'src')));
+app.use(express.static(path.join(__dirname, 'src')));
 
 app.use('/', index);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
