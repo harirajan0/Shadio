@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "angular": "^1.6.5",
     "angular-route": "^1.6.4",
     "body-parser": "~1.17.1",
     "consolidate": "^0.14.5",
@@ -14,7 +15,11 @@
     "express": "~4.15.2",
     "hjs": "~0.0.6",
     "less-middleware": "~2.2.0",
+    "mongodb": "^2.2.30",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.11.3",
     "morgan": "~1.8.1",
-    "serve-favicon": "~2.4.2"
+    "serve-favicon": "~2.4.2",
+    "swig": "^1.4.2"
   }
 }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="shadioApp">
+    <head>
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        </link>
+        <link 
+            name="Shadio Style Sheet"
+            rel="stylesheet" 
+            href="stylesheets/shadiostyle.css" 
+            type="text/css">
+        </link>
+        <link 
+            name="Font Awesome CSS"
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            type="text/css">
+        </link>
+        <script
+            name="JQuery"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script
+            name="Angular"
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+        </script>
+        <script 
+            name="Angular Route"
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js">
+        </script>
+        <script 
+            name="Bootstrap Javascript"
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+        <script
+            name="Master Script"
+            src="javascripts/master.js">
+        </script>
+        <title>
+            Welcome to Shadio!
+        </title>
+    </head>
+    <h1 class="logo-bar">
+        <img src="images/shadiologo.png">
+    </h1>
+    <body>
+        <ng-view></ng-view>
+    </body>
+</html>

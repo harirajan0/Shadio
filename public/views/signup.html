@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html ng-app="shadioApp">
+    <head>
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        </link>
+        <link 
+            name="Shadio Style Sheet" 
+            rel="stylesheet" href="stylesheets/shadiostyle.css" 
+            type="text/css">
+        </link>
+        <link 
+            name="Font Awesome CSS" 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            type="text/css">
+        </link>
+        <script
+            name="JQuery"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script 
+            name="Angular" 
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+        </script>
+        <script 
+            name="Angular Route" 
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js">
+        </script>
+        <script 
+            name="Bootstrap Javascript" 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+        <script 
+            name="Master Script" 
+            src="javascripts/master.js">
+        </script>
+        <title>
+            Shadio 
+        </title>
+    </head>
+    <h1 class="logo-bar">
+        <img src="images/shadiologo.png">
+    </h1>
+    <body>
+        <div ng-controller='signupController' class="signup-container">
+            <link 
+                name="Signup Style Sheet" 
+                rel="stylesheet" href="stylesheets/signupstyle.css" 
+                type="text/css">
+            </link>
+            <p class="signup-heading">
+                Enter your info to sign up and start sharing music!
+            </p>
+            <section class="signup-form">
+                <form 
+                    name="signupForm" 
+                    role="form" 
+                    ng-submit="sendUserInfo()">
+                    <div class="signup-input">
+                        <input 
+                            type="text" 
+                            name="username"
+                            placeholder="Username"
+                            ng-model="userInfo.username.value"/>
+                    </div>
+                    <div class="signup-input">
+                        <input 
+                            type="password" 
+                            name="password"
+                            placeholder="Password"
+                            ng-model="userInfo.password.value"/>
+                    </div>
+                    <div class="signup-input">
+                        <input 
+                            type="password" 
+                            name="repeatedPassword"
+                            placeholder="Repeat Password"
+                            ng-model="userInfo.repeatedPassword.value"/>
+                    </div>
+                    <div class="signup-input-prompt">
+                        Please provide a security question and response so we can help you recover your account details when needed:
+                    </div>
+                    <div class="signup-input">
+                        <input 
+                            type="text" 
+                            name="securityQuestion"
+                            placeholder="Enter a security question"
+                            ng-model="userInfo.securityQuestion.value"/>
+                    </div>
+                    <div class="signup-input">
+                        <input 
+                            type="text" 
+                            name="securityAnswer"
+                            placeholder="Answer to security question"
+                            ng-model="userInfo.securityAnswer.value"/>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="button-primary">
+                        Sign Up
+                    </button> 
+                </form>
+                <button class="button-secondary" ng-click="goToLogin()">
+                    Already have an account
+                </button> 
+                <ul class="signup-input-error-messages-list">
+                    <li class="signup-input-error-message" ng-show="userInfo.username.isEmpty">
+                        Please enter a username
+                    </li>
+                    <li class="signup-input-error-message" ng-show="userInfo.username.isInvalid && !userInfo.username.isEmpty">
+                        Sorry this username has been taken
+                    </li>
+                    <li class="signup-input-error-message" ng-show="userInfo.password.isInvalid">
+                            Password must be at least 6 letters
+                    </li>
+                    <li class="signup-input-error-message" ng-show="userInfo.repeatedPassword.isInvalid">
+                        Both passwords must match
+                    </li>
+                    <li class="signup-input-error-message" ng-show="userInfo.securityQuestion.isEmpty">
+                        Please provide a security question
+                    </li>
+                    <li class="signup-input-error-message" ng-show="userInfo.securityAnswer.isEmpty">
+                        Please provide an asnwer for the security question
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>

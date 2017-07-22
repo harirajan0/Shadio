@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="shadioApp">
+    <head>
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        </link>
+        <link 
+            name="Shadio Style Sheet" 
+            rel="stylesheet" href="stylesheets/shadiostyle.css" 
+            type="text/css">
+        </link>
+        <link 
+            name="Font Awesome CSS" 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            type="text/css">
+        </link>
+        <script
+            name="JQuery"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script 
+            name="Angular" 
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+        </script>
+        <script 
+            name="Angular Route" 
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js">
+        </script>
+        <script 
+            name="Bootstrap Javascript" 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+        <script 
+            name="Master Script" 
+            src="javascripts/master.js">
+        </script>
+        <title>
+            Shadio 
+        </title>
+    </head>
+    <h1 class="logo-bar">
+        <img src="images/shadiologo.png">
+    </h1>
+    <body>
+        <div ng-controller='loginController' class="login-container">
+            <link 
+                name="Login Style Sheet"
+                rel="stylesheet" 
+                href="stylesheets/loginstyle.css" 
+                type="text/css">
+            </link>
+            <p class="login-heading">
+                Login or sign up to start sharing music!
+            </p>
+            <section class="login-form">
+                <form>
+                    <div class="login-input">
+                        <input type="text" id="username" placeholder="Username"/>
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="login-input">
+                        <input type="password" id="password" placeholder="Password"/>
+                        <i class="fa fa-lock"></i>
+                    </div>
+                    <button class="button-primary" ng-click="sendAuthentication()">
+                        Login
+                    </button>  
+                </form>
+                <div>
+                    <button class="button-primary" ng-click="goToSignup()">
+                        Sign Up
+                    </button>
+                </div>
+                <div class="login-error-message" ng-show="authentication.isInvalid">
+                    Incorrect username or password
+                </div>
+                <button class="button-secondary" ng-click="goToForgotPassword()">
+                    Forgot Password
+                </button>
+            </section>
+        </div>
+    </body>
+</html>

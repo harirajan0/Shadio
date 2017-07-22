@@ -1,0 +1,15 @@
+body 
+{
+    background-color: #2b2b2d;
+	background-image: url("../images/backgroundmusicwave.png");
+}
+
+h1.logo-bar img 
+{
+    width: 300px;
+    height: 85px;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: left;
+    position: static;
+}
