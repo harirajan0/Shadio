@@ -1,5 +1,21 @@
 var app = angular.module('shadioApp', []);
 
+app.factory('$util', function()
+{
+    var util = 
+    {
+        guid: function() 
+        {
+            return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, 
+                c =>
+                    (c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4)
+                    .toString(16));
+        }
+    };
+
+    return util;
+})
+
 app
 .controller('homeController', ['$scope', '$routeParams', '$rootScope', function($scope, $routeParams, $rootScope)
 {
@@ -36,8 +52,13 @@ app
     }
 
 }])
-.controller('signupController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http)
+.controller('signupController', ['$scope', '$rootScope', '$http', '$util', function($scope, $rootScope, $http, $util)
 {
+    $scope.generateGuid = function() 
+    {
+        console.log($util.guid());
+    }
+
     $scope.userInfo = 
     {
         username:
@@ -112,4 +133,48 @@ app
 .controller('profileController', ['$scope', function($scope, $rootScope)
 {
 
+}])
+.controller('newRadioController', ['$scope', '$sce', '$util', function($scope, $sce, $util)
+{
+    $scope.radioInfo = 
+    {
+        name: 
+        {
+            value: "",
+            isInvalid: false
+        },
+        description: "",
+        password:
+        {
+            value: "",
+            isInvalid: false
+        },
+        repeatedPassword: 
+        {
+            value: "",
+            isInvalid: false
+        },
+        id: $sce.trustAsHtml($util.guid()),
+        isPrivate: false
+    };
+
+    $scope.sendRadioInfo = function() 
+    {
+        console.log("jooo");
+
+        $scope.radioInfo.name.isInvalid = $scope.radioInfo.name.value.length == 0;
+        if ($scope.radioInfo.isPrivate)
+        {
+            $scope.radioInfo.password.isInvalid = $scope.radioInfo.password.value.length < 6;
+            $scope.radioInfo.repeatedPassword.isInvalid = $scope.radioInfo.password.value != $scope.radioInfo.repeatedPassword.value;
+        }
+
+        if (!($scope.radioInfo.name.isInvalid
+            || $scope.radioInfo.password.isInvalid
+            || $scope.radioInfo.repeatedPassword.isInvalid))
+        {
+            //send the info
+            console.log("radio created");
+        }
+    }
 }]);

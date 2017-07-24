@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html ng-app="shadioApp">
+    <head>
+        <link 
+            rel="stylesheet" 
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        </link>
+        <link 
+            name="Shadio Style Sheet" 
+            rel="stylesheet" href="stylesheets/shadiostyle.css" 
+            type="text/css">
+        </link>
+        <link 
+            name="Font Awesome CSS" 
+            rel="stylesheet" 
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+            type="text/css">
+        </link>
+        <script
+            name="JQuery"
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+        </script>
+        <script 
+            name="Angular" 
+            src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js">
+        </script>
+        <script 
+            name="Angular Route" 
+            src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js">
+        </script>
+        <script 
+            name="Bootstrap Javascript" 
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
+        </script>
+        <script 
+            name="Master Script" 
+            src="javascripts/master.js">
+        </script>
+        <title>
+            test 
+        </title>
+    </head>
+    <h1 class="logo-bar">
+        <img src="images/shadiologo.png">
+    </h1>
+    <body>
+        <link 
+            name="New Radio Style Sheet"
+            rel="stylesheet" 
+            href="stylesheets/newradiostyle.css" 
+            type="text/css">
+        </link>
+        <div ng-controller='newRadioController' class="radio-form-container">
+            <section class="radio-form">
+                <div class="radio-id">
+                    RadioId: <span ng-bind-html="radioInfo.id"></span>
+                </div>
+                <form 
+                    name="radioForm" 
+                    role="form" 
+                    ng-submit="sendRadioInfo()">
+                    <p class="description">Provide others with this identifier to help them find your radio</p>
+                    <input type="text" class="radio-input" placeholder="Enter your radio name" ng-model="radioInfo.name.value">
+                    <input type="text" class="radio-input" placeholder="Enter a description for your radio" ng-model="radioInfo.description">
+                    <input type="checkbox" name="private" ng-model="radioInfo.isPrivate"><p class="checkbox-text">Private Radio</p>
+                    <p class="description">Users will need your chosen radio password to access a private radio</p>
+                    <input type="password" class="radio-input" placeholder="Password" ng-show="radioInfo.isPrivate" ng-model="radioInfo.password.value">
+                    <input type="password" class="radio-input" placeholder="Repeat password" ng-show="radioInfo.isPrivate" ng-model="radioInfo.repeatedPassword.value">
+                    <button type="submit" class="button-primary">
+                        Create Radio
+                    </button> 
+                    <p class="error-message" ng-show="radioInfo.name.isInvalid">The radio name must not be empty</p>
+                    <p class="error-message" ng-show="radioInfo.password.isInvalid">The radio password be at least six characters long</p>
+                    <p class="error-message" ng-show="radioInfo.repeatedPassword.isInvalid">Both passwords must match</p>
+                    
+                </form>
+            </section>
+        </div>
+    </body>
+</html>
